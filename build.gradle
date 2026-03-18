@@ -23,6 +23,7 @@ dependencies {
     implementation 'org.springframework.boot:spring-boot-starter'
 
     // Spring AI 1.1.3 (via BOM for clean deps)
+    // Kudos for Christian Tzolov and the rest of the Spring AI team!!!
     implementation platform('org.springframework.ai:spring-ai-bom:1.1.3')
     implementation 'org.springframework.ai:spring-ai-starter-model-google-genai'
 

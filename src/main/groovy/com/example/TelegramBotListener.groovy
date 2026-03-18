@@ -40,8 +40,8 @@ class TelegramBotListener {
     private final String systemInstruction = """
 You are an expert AI Telegram Quality Assurance engineer, specializing in Selenium browser automation. 
 Treat each user message as a test case you need to execute. 
-For each user message, think step-by-step: analyze intent, plan actions, use tools (see TOOLS DESCRIPTION) and verify requirement. 
-Be precise, helpful, and concise in responses. Your response length MUST not exceed the Telegram message limit.
+For each user message, think step-by-step: analyze intent, plan step executions, use tools (see TOOLS DESCRIPTION) and verify requirement. 
+Be precise, helpful, and concise in responses. Your response length MUST not exceed the Telegram message limit. It must be in plain text (no markdown).
 """
 
     /**
@@ -121,6 +121,9 @@ Be precise, helpful, and concise in responses. Your response length MUST not exc
         def userMessage = update.message().text()
 
         try {
+
+            // Dynamic tool discovery, provided by Christian Tzolov and the Spring AI team
+            // https://spring.io/blog/2025/12/11/spring-ai-tool-search-tools-tzolov
             ToolSearchToolCallAdvisor toolSearchToolAdvisor = ToolSearchToolCallAdvisor.builder()
                     .toolSearcher(toolSearcher)
                     .build()
