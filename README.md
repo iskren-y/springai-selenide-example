@@ -13,6 +13,8 @@ Minimalistic E2E test agent powered by Google Gemini, Spring AI, and Selenide fo
 
 ## Setup for Local Usage
 
+`SDKMan` installed locally is required
+
 Create a `.env` file in the project root with the following required keys:
 
 ```bash
@@ -23,6 +25,7 @@ TELEGRAM_BOT_API_KEY=your_telegram_bot_api_key_here
 ## Running Locally
 
 ```bash
+sdk env
 ./gradlew build
 docker-compose up
 ```
