@@ -1,0 +1,4 @@
+# .sdkmanrc file
+
+java=24.0.2-open
+gradle=8.14

@@ -1,0 +1,33 @@
+1) Send GET https://practice.expandtesting.com/api/my-ip/ with no auth/body
+2) In the response, assert:
+ - Status = 200
+ - Ip field exists and is a valid IPv4 string
+ - country = "United States" 
+ - city and timezone are non-empty strings
+ 
+ ---------------------------------------------------------------
+ 
+1) POST https://practice.expandtesting.com/notes/api/users/register with payload containing name=Api Practice User, email=apipractice13323@expandtesting.com and password=SuperSecretPassword!
+2) Assert status = 201 or 200 and response contains success message.
+3) POST https://practice.expandtesting.com/notes/api/users/login with payload containing email=apipractice123@expandtesting.com and password=SuperSecretPassword!
+4) Assert status = 200
+5) Extract token from response 
+6) POST https://practice.expandtesting.com/notes/api/notes
+Headers:
+ x-auth-token={token}
+Content-Type=application/json
+Payload:
+ title="API testing Practice Note",
+ description="This note was created via HTTP request for API testing"
+7) Assert status = 201 or 200
+8) Assert response contains id, title, and created timestamp of the newly created note
+9) GET https://practice.expandtesting.com/notes/api/notes (header x-auth-token: {token})
+10) Assert 200 and the new note appears in the array.
+11) GET https://practice.expandtesting.com/notes/api/notes/{noteId} (header x-auth-token: {token})
+12) Assert exact title/description match.
+13) PUT https://practice.expandtesting.com/notes/api/notes/{noteId} (header x-auth-token: {token})
+Payload: updated title 
+14) Assert response status 200 and data changed as expected.
+15) DELETE https://practice.expandtesting.com/notes/api/notes/{{noteId}} (header x-auth-token: {token})
+16) Assert response status 200 or 204.
+17) Final GET/notes → Assert note is gone.

@@ -1,0 +1,42 @@
+plugins {
+    id 'org.springframework.boot' version '3.5.10'
+    id 'io.spring.dependency-management' version '1.1.7'
+    id 'groovy'
+}
+
+group = 'ai.community'
+version = '1.0-SNAPSHOT'
+
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(24)
+    }
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'org.apache.groovy:groovy:4.0.30'
+
+    implementation 'org.springframework.boot:spring-boot-starter'
+
+    // Spring AI 1.1.3 (via BOM for clean deps)
+    implementation platform('org.springframework.ai:spring-ai-bom:1.1.3')
+    implementation 'org.springframework.ai:spring-ai-starter-model-google-genai'
+
+    // Source: https://mvnrepository.com/artifact/org.springaicommunity/tool-search-tool
+    implementation("org.springaicommunity:tool-search-tool:1.0.1")
+    implementation("org.springaicommunity:tool-searcher-lucene:1.0.1")
+
+    // Selenide for browser automation (latest)
+    implementation 'com.codeborne:selenide:7.14.0'
+
+    // Telegram Bot API client
+    implementation 'com.github.pengrad:java-telegram-bot-api:9.4.1'
+}
+
+test {
+    useJUnitPlatform()
+}

@@ -1,0 +1,16 @@
+
+services:
+
+  springai-selenide-app:
+    build: .  # Build from Dockerfile
+    working_dir: /app
+    env_file:
+      - .env
+    networks:
+      - app-network
+    volumes:
+      - ./build/libs/springai-selenide-example-1.0-SNAPSHOT.jar:/app/example-app.jar
+    entrypoint: [ "java", "-jar", "/app/example-app.jar" ]
+
+networks:
+  app-network:

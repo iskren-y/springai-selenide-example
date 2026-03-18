@@ -1,0 +1,22 @@
+1) Navigate to https://practice.expandtesting.com/login
+2) Locate the Username input field
+3) Enter the text `practice` into the Username field.
+4) Locate the Password input field
+5) Enter the text `SuperSecretPassword!` into the Password field
+6) Locate the Login button.
+7) Click the Login button.
+8) Assert login success message is displayed (no “Invalid username” or “Invalid password” error appears).
+
+-------------------------------------------------------------
+
+1) Navigate to https://practice.expandtesting.com/inputs
+2) Locate and fill the following fields:
+ - Number Input → enter '42'
+ - Text Input → enter 'Selenium Practice'
+ - Password input → enter 'test123'
+ - Date input → enter '2026-03-17'
+3) Click the `Display Inputs` button 
+4) Wait and confirm for the displayed values section appears
+5) Assert that all entered values are correctly shown in the display area.
+6) Click the `Clear Inputs` button
+7) Assert that all input fields are now empty.
