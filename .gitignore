@@ -38,7 +38,7 @@ bin/
 ### Mac OS ###
 .DS_Store
 
-# Environment files
-.env
-
 AGENTS.md
+
+run-local.sh
+stop-local.sh

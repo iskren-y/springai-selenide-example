@@ -13,19 +13,16 @@ Minimalistic E2E test agent powered by Google Gemini, Spring AI, and Selenide fo
 
 ## Setup for Local Usage
 
-`SDKMan` installed locally is required
-
-Create a `.env` file in the project root with the following required keys:
+Export the following environment variables in your shell:
 
 ```bash
-GEMINI_API_KEY=your_gemini_api_key_here
-TELEGRAM_BOT_API_KEY=your_telegram_bot_api_key_here
+export GEMINI_API_KEY=your_gemini_api_key_here
+export TELEGRAM_BOT_API_KEY=your_telegram_bot_api_key_here
 ```
 
 ## Running Locally
 
 ```bash
-sdk env
 ./gradlew build
 docker-compose up
 ```

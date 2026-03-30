@@ -1,11 +1,10 @@
-
 services:
-
   springai-selenide-app:
-    build: .  # Build from Dockerfile
+    build: .
     working_dir: /app
-    env_file:
-      - .env
+    environment:
+      - GEMINI_API_KEY=${GEMINI_API_KEY}
+      - TELEGRAM_BOT_API_KEY=${TELEGRAM_BOT_API_KEY}
     networks:
       - app-network
     volumes:
