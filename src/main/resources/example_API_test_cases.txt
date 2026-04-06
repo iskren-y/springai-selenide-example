@@ -7,7 +7,8 @@
  
  ---------------------------------------------------------------
  
-1) POST https://practice.expandtesting.com/notes/api/users/register with payload containing name=Api Practice User, email=apipractice13323@expandtesting.com and password=SuperSecretPassword!
+1) POST https://practice.expandtesting.com/notes/api/users/register with payload containing name=Api Practice User,
+valid randomized email ending with @expandtesting.com and password=SuperSecretPassword!
 2) Assert status = 201 or 200 and response contains success message.
 3) POST https://practice.expandtesting.com/notes/api/users/login with payload containing email=apipractice123@expandtesting.com and password=SuperSecretPassword!
 4) Assert status = 200
