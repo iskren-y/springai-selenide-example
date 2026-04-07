@@ -16,6 +16,7 @@ import org.springframework.ai.chat.client.advisor.api.Advisor
 import org.springframework.ai.chat.metadata.Usage
 import org.springframework.ai.chat.model.ChatModel
 import org.springframework.ai.chat.model.ChatResponse
+import org.springframework.ai.ollama.api.OllamaChatOptions
 import org.springframework.boot.context.event.ApplicationReadyEvent
 import org.springframework.context.event.EventListener
 import org.springframework.stereotype.Component
@@ -122,6 +123,8 @@ Be precise, helpful, and concise in responses. Your response length MUST not exc
 
         try {
 
+
+
             // Dynamic tool discovery, provided by Christian Tzolov and the Spring AI team
             // https://spring.io/blog/2025/12/11/spring-ai-tool-search-tools-tzolov
             ToolSearchToolCallAdvisor toolSearchToolAdvisor = ToolSearchToolCallAdvisor.builder()
@@ -129,6 +132,7 @@ Be precise, helpful, and concise in responses. Your response length MUST not exc
                     .build()
 
             final List<Advisor> advisors = List.of(toolSearchToolAdvisor)
+
 
             ChatResponse response = chatClient.prompt()
                     .advisors(advisors)

@@ -1,17 +1,16 @@
 spring:
   ai:
     model:
-      chat: google-genai
-    google:
-      genai:
-        api-key: ${GEMINI_API_KEY}
-        chat:
-          options:
-            model: gemini-3-flash-preview
-            temperature: 1.0
-            max-output-tokens: 3000
-            thinking-level: HIGH
-            internal-tool-execution-enabled: true
+      chat: ollama
+    ollama:
+      base-url: http://host.docker.internal:11434
+      chat:
+        options:
+          model: gemma4:26b
+          temperature: 1.0
+          num-ctx: 65536            # ← Ollama's recommended agent floor
+          num-keep: 512             # ← protect system prompt + tool schemas from eviction
+          internal-tool-execution-enabled: true
 
 telegram:
   bot:
